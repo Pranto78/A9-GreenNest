@@ -1,0 +1,122 @@
+[
+  {
+    "plantId": 1,
+    "plantName": "Snake Plant",
+    "category": "Air Purifier",
+    "price": 18,
+    "rating": 4.8,
+    "availableStock": 10,
+    "careLevel": "Easy",
+    "description": "A hardy plant that purifies indoor air and thrives in low light.",
+    "image": "https://i.ibb.co.com/VcjF1Nn6/Snake-Plant-1-f6204179-d92b-40e3-bec7-0d3a61e93b81.webp",
+    "providerName": "UrbanGreen Studio"
+  },
+  {
+    "plantId": 2,
+    "plantName": "Peace Lily",
+    "category": "Flowering",
+    "price": 25,
+    "rating": 4.6,
+    "availableStock": 8,
+    "careLevel": "Medium",
+    "description": "Elegant white blooms and helps improve indoor air quality.",
+    "image": "https://i.ibb.co.com/8LGfrfm3/peace-lily-01.jpg",
+    "providerName": "GreenThumb Co."
+  },
+  {
+    "plantId": 3,
+    "plantName": "Aloe Vera",
+    "category": "Succulent",
+    "price": 15,
+    "rating": 4.7,
+    "availableStock": 12,
+    "careLevel": "Easy",
+    "description": "Medicinal succulent that requires minimal care and bright light.",
+    "image": "https://i.ibb.co.com/prnKgJBG/81-XWp-Vvk5-AL-AC-UF1000-1000-QL80.jpg",
+    "providerName": "Nature's Leaf"
+  },
+  {
+    "plantId": 4,
+    "plantName": "Monstera Deliciosa",
+    "category": "Indoor Foliage",
+    "price": 35,
+    "rating": 4.9,
+    "availableStock": 5,
+    "careLevel": "Medium",
+    "description": "Iconic split-leaf plant that thrives indoors with indirect light.",
+    "image": "https://i.ibb.co.com/7wzTbtY/monstera-deliciosa-or-swiss-cheese-plant-in-a-white-flower-pot-stands-on-a-white-wood-table-13332277.jpg",
+    "providerName": "UrbanGreen Studio"
+  },
+  {
+    "plantId": 5,
+    "plantName": "Fiddle Leaf Fig",
+    "category": "Indoor Foliage",
+    "price": 45,
+    "rating": 4.5,
+    "availableStock": 7,
+    "careLevel": "Hard",
+    "description": "Tall and elegant plant requiring bright light and consistent care.",
+    "image": "https://i.ibb.co.com/VYXQ1tHj/istockphoto-1299094421-612x612.jpg",
+    "providerName": "Leafy Home"
+  },
+  {
+    "plantId": 6,
+    "plantName": "Spider Plant",
+    "category": "Air Purifier",
+    "price": 12,
+    "rating": 4.7,
+    "availableStock": 15,
+    "careLevel": "Easy",
+    "description": "Resilient plant that thrives in indirect light and purifies air.",
+    "image": "https://i.ibb.co.com/zh5yy450/BHG-spider-plant-c0e0fdd5ec6e4c1588998ce3167f6579.jpg",
+    "providerName": "GreenThumb Co."
+  },
+  {
+    "plantId": 7,
+    "plantName": "Rubber Plant",
+    "category": "Indoor Foliage",
+    "price": 30,
+    "rating": 4.6,
+    "availableStock": 6,
+    "careLevel": "Medium",
+    "description": "Glossy leaves and grows well indoors with moderate light.",
+    "image": "https://i.ibb.co.com/bRCJgF20/IMG-20241229-160101-1920-Dx-O.webp",
+    "providerName": "UrbanGreen Studio"
+  },
+  {
+    "plantId": 8,
+    "plantName": "ZZ Plant",
+    "category": "Air Purifier",
+    "price": 28,
+    "rating": 4.8,
+    "availableStock": 9,
+    "careLevel": "Easy",
+    "description": "Low maintenance plant ideal for low-light indoor spaces.",
+    "image": "https://i.ibb.co.com/zhBrRSBz/zz-plant-Getty-Images-1387302222-e9e228907c3e4e4ea3481898c90d1a53.jpg",
+    "providerName": "Nature's Leaf"
+  },
+  {
+    "plantId": 9,
+    "plantName": "Jade Plant",
+    "category": "Succulent",
+    "price": 20,
+    "rating": 4.5,
+    "availableStock": 11,
+    "careLevel": "Easy",
+    "description": "Succulent symbolizing good luck, thrives in bright light.",
+    "image": "https://i.ibb.co.com/qY9tZt7c/01-jade-plant-mostly-shade.webp",
+    "providerName": "Leafy Home"
+  },
+  {
+    "plantId": 10,
+    "plantName": "Boston Fern",
+    "category": "Indoor Foliage",
+    "price": 22,
+    "rating": 4.4,
+    "availableStock": 8,
+    "careLevel": "Medium",
+    "description": "Lush fern that prefers humid environments and indirect light.",
+    "image": "https://i.ibb.co.com/pvzVmF61/nephrolepis-exaltata-780x520.jpg",
+    "providerName": "GreenThumb Co."
+  }
+]
