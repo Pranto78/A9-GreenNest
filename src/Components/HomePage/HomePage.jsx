@@ -4,6 +4,7 @@ import { Outlet } from 'react-router';
 import AllPlants from '../AllPlants/AllPlants';
 import Footer from '../../Layout/Footer';
 import PlantCareTips from '../PlantCareTips/PlantCareTips';
+import PlantExperts from '../PlantcareExpert/PlantcareExpert';
 
 const HomePage = () => {
     return (
@@ -16,6 +17,7 @@ const HomePage = () => {
           <Outlet></Outlet>
           <AllPlants></AllPlants>
           <PlantCareTips></PlantCareTips>
+          <PlantExperts></PlantExperts>
         </main>
 
         <footer className="footer footer-horizontal footer-center bg-base-200 text-base-content rounded p-10">
