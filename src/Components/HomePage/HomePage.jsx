@@ -13,11 +13,9 @@ const HomePage = () => {
           <Navbar></Navbar>
         </header>
 
-        <main className="w-11/12 mx-auto">
+        <main className="w-11/12 mx-auto my-10">
           <Outlet></Outlet>
-          <AllPlants></AllPlants>
-          <PlantCareTips></PlantCareTips>
-          <PlantExperts></PlantExperts>
+          
         </main>
 
         <footer className="footer footer-horizontal footer-center bg-base-200 text-base-content rounded p-10">
