@@ -66,7 +66,7 @@ const AllPlants = () => {
 
              
               <button className="border border-green-500 text-green-500 px-6 py-2 rounded-full hover:bg-green-500 hover:text-white transition-colors duration-300">
-                Details
+                View Details
               </button>
             </div>
           </motion.div>

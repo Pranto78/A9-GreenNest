@@ -71,7 +71,7 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex="-1"
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-60 mt-3 w-52 p-2 shadow"
             >
               {links}
             </ul>
@@ -86,11 +86,11 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1">{links}</ul>
         </div>
         <div className="navbar-end flex gap-3">
-          <a className="btn btn-outline btn-success">
-            <IoLogIn size={24} /> Login
+          <a className="btn btn-outline btn-success text-sm sm:text-base px-2 sm:px-4 py-1 sm:py-2">
+            <IoLogIn size={20} className="sm:size-24" /> Login
           </a>
-          <a className="btn btn-outline btn-error">
-            <FaUserPlus size={24} /> SignUp
+          <a className="btn btn-outline btn-error text-sm sm:text-base px-2 sm:px-4 py-1 sm:py-2">
+            <FaUserPlus size={20} className="sm:size-24" /> SignUp
           </a>
         </div>
       </div>
