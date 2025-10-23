@@ -1,15 +1,14 @@
-import React from "react";
-import { useParams, useLoaderData } from "react-router"; // you said you're using react-router
+import React, { useState } from "react";
+import { useParams, useLoaderData } from "react-router";
 import { FaStar } from "react-icons/fa";
+import toast from "react-hot-toast";
 
 const PlantsDetails = () => {
-  const { id } = useParams(); // Get plant ID from URL
-  const data = useLoaderData(); // This gives you the full array (10 plants)
+  const { id } = useParams();
+  const data = useLoaderData();
 
-  // Find the single plant matching the ID
   const plant = data.find((item) => item.plantId === parseInt(id));
 
-  // Optional safety check in case no plant is found
   if (!plant) {
     return (
       <div className="flex justify-center items-center h-screen text-xl text-red-600">
@@ -29,6 +28,28 @@ const PlantsDetails = () => {
     image,
     providerName,
   } = plant;
+
+
+  const [form, setForm] = useState({ name: "", email: "" });
+
+  
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setForm((prev) => ({ ...prev, [name]: value }));
+  };
+
+  // ✅ handle submit
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (!form.name || !form.email) {
+      toast.error("Please fill out all fields!");
+      return;
+    }
+
+    toast.success("~Consultation booked successfully!");
+    setForm({ name: "", email: "" }); // clear form
+  };
 
   return (
     <div className="flex flex-col md:flex-row items-center justify-center min-h-screen rounded-2xl bg-linear-to-br from-[#d8f7cd] to-[#dfeed8] p-6">
@@ -52,27 +73,25 @@ const PlantsDetails = () => {
             <FaStar
               key={i}
               className={`${
-                i < Math.round(rating) ? "text-green-600" : "text-gray-300"
+                i < Math.round(rating) ? "text-yellow-400" : "text-gray-300"
               } text-lg`}
-            />
+            /> 
           ))}
           <span className="ml-2 text-gray-700 font-medium">{rating}</span>
         </div>
 
         <p className="mt-3 text-gray-600">{description}</p>
 
-        <div className="mt-5">
+        <div className="mt-3">
           <p className="text-2xl font-bold text-gray-800">${price}</p>
-          <br />
-          
-          <hr  className="mb-2 text-gray-400" />
-          
-          <span className=" bg-green-700 text-white px-3 py-1 rounded-md text-sm">
+
+          <hr className="mb-2 text-gray-400" />
+          <span className="bg-gradient-to-r from-[#00b09b] to-[#96c93d] text-white px-3 py-1 rounded-md text-sm">
             In Stock: {availableStock}
           </span>
         </div>
 
-        <div className="mt-4">
+        <div className="mt-3">
           <p className="text-gray-700">
             <span className="font-semibold">Care Level:</span> {careLevel}
           </p>
@@ -80,27 +99,34 @@ const PlantsDetails = () => {
             <span className="font-semibold">Provider:</span> {providerName}
           </p>
         </div>
+        <hr className="mt-2 text-gray-400" />
 
-        {/* Consultation Form */}
-        <div className="mt-8 bg-white p-6 rounded-xl shadow">
+        {/* 🧾 Consultation Form */}
+        <div className="mt-4 bg-white p-6 rounded-xl shadow">
           <h2 className="text-lg font-semibold text-gray-800 mb-4">
             Book a Consultation with an Expert
           </h2>
 
-          <form className="flex flex-col space-y-3">
+          <form onSubmit={handleSubmit} className="flex flex-col space-y-3">
             <input
               type="text"
+              name="name"
+              value={form.name}
+              onChange={handleChange}
               placeholder="Your Name"
               className="border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-green-500"
             />
             <input
               type="email"
+              name="email"
+              value={form.email}
+              onChange={handleChange}
               placeholder="Email Address"
               className="border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-green-500"
             />
             <button
               type="submit"
-              className="bg-green-700 text-white py-2 rounded-md hover:bg-green-800 shadow-md"
+              className="bg-gradient-to-r from-[#00b09b] to-[#96c93d] text-white py-2 px-6 rounded-md shadow-md hover:from-[#00997e] hover:to-[#7cb82c] transition-all duration-300"
             >
               Book Now
             </button>

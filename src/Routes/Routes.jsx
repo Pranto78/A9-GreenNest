@@ -7,6 +7,7 @@ import AuthLayout from "../Auth/AuthLayout";
 import Registration from "../Pages/Registration";
 import Login from "../Pages/Login";
 import PrivateRoute from "../Provider/PrivateRoute";
+import Profile from "../Pages/Profile";
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,15 @@ const router = createBrowserRouter([
         path:"/plants",
         element:<Plants></Plants>,
         loader:()=> fetch('/Plants.json')
+      },
+      {
+        path:"/profile",
+        element:(
+          <PrivateRoute>
+            <Profile></Profile>
+          </PrivateRoute>
+        )
+
       },
       {
         path:"/plantsDetails/:id",

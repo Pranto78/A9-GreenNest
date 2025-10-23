@@ -55,7 +55,7 @@ const Plants = () => {
 
               <NavLink
                 to={`/plantsDetails/${plant.plantId}`}
-                className="border border-green-500 text-green-500 px-6 py-2 rounded-full hover:bg-green-500 hover:text-white transition-colors duration-300"
+                className="border border-green-500 text-green-500 px-6 py-2 rounded-full bg-transparent bg-gradient-to-r from-transparent to-transparent hover:from-[#00b09b] hover:to-[#96c93d] hover:text-white transition-all duration-300"
               >
                 View Details
               </NavLink>
