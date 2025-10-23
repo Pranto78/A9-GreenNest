@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { FaStar, FaMoneyBillWave } from "react-icons/fa";
 import plantsData from "../../../public/Plants.json";
+import { NavLink } from "react-router";
 
 const AllPlants = () => {
   const [plants, setPlants] = useState([]);
@@ -27,7 +28,6 @@ const AllPlants = () => {
         Our Plants
       </h1>
 
-      
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {displayedPlants.map((plant, index) => (
           <motion.div
@@ -36,22 +36,20 @@ const AllPlants = () => {
             variants={cardVariants}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: false, amount: 0.3 }} 
+            viewport={{ once: false, amount: 0.3 }}
             transition={{
               duration: 0.6,
               delay: index * 0.1,
               ease: "easeOut",
             }}
-            whileHover={{ scale: 1.03 }} 
+            whileHover={{ scale: 1.03 }}
           >
-            
             <img
               src={plant.image}
               alt={plant.plantName}
               className="w-full h-72 object-cover p-5 rounded-4xl"
             />
 
-            
             <div className="p-4 flex flex-col items-center text-center">
               <h2 className="text-xl font-semibold mb-1">{plant.plantName}</h2>
               <p className="text-gray-500 mb-1">{plant.category}</p>
@@ -64,16 +62,17 @@ const AllPlants = () => {
                 <FaStar /> {plant.rating.toFixed(1)}
               </p>
 
-             
-              <button className="border border-green-500 text-green-500 px-6 py-2 rounded-full hover:bg-green-500 hover:text-white transition-colors duration-300">
+              <NavLink
+                to={`/plantsDetails/${plant.plantId}`}
+                className="border border-green-500 text-green-500 px-6 py-2 rounded-full hover:bg-green-500 hover:text-white transition-colors duration-300"
+              >
                 View Details
-              </button>
+              </NavLink>
             </div>
           </motion.div>
         ))}
       </div>
 
-     
       {!showAll && plants.length > 6 && (
         <motion.div
           className="flex justify-center mt-10"
@@ -82,12 +81,12 @@ const AllPlants = () => {
           viewport={{ once: false }}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <button
-            onClick={() => setShowAll(true)}
+          <NavLink
+            to="/plants"
             className="bg-green-500 text-white px-8 py-3 rounded-full font-medium hover:bg-green-600 transition-all duration-300 shadow-md"
           >
             Show All
-          </button>
+          </NavLink>
         </motion.div>
       )}
     </div>
