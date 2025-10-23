@@ -62,7 +62,7 @@ const Navbar = () => {
   return (
     <div className="relative">
       {/* Navbar Main */}
-      <div className="navbar shadow-sm bg-gradient-to-br from-[#d8f7cd] to-[#dfeed8] px-4">
+      <div className="navbar shadow-sm bg-gradient-to-br from-[#e4f5de] via-[#c4e7c1] to-[#a3d49c] px-4">
         {/* LEFT: Menu + Logo */}
         <div className="navbar-start flex items-center gap-2">
           {/* Hamburger Menu */}
@@ -107,13 +107,16 @@ const Navbar = () => {
               </div>
               <ul
                 tabIndex={0}
-                className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-44"
+                className="dropdown-content z-[50] menu p-2 shadow-lg bg-gradient-to-b from-[#90ddc3] to-[#f0a28c] rounded-xl w-44 transition-all duration-300"
               >
-                <li className="font-semibold text-center text-gray-700">
+                <li className="font-semibold text-center text-gray-800 mb-2">
                   {user.displayName || "User"}
                 </li>
                 <li>
-                  <button onClick={handleLogout} className="text-red-600">
+                  <button
+                    onClick={handleLogout}
+                    className="w-full text-white bg-gradient-to-r from-[#917178] to-[#cf777b] py-2 rounded-md font-medium hover:from-[#e33b61] hover:to-[#e94525] shadow-md transition-all duration-300"
+                  >
                     Logout
                   </button>
                 </li>

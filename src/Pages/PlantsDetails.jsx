@@ -52,7 +52,7 @@ const PlantsDetails = () => {
   };
 
   return (
-    <div className="flex flex-col md:flex-row items-center justify-center min-h-screen rounded-2xl bg-linear-to-br from-[#d8f7cd] to-[#dfeed8] p-6">
+    <div className="flex flex-col md:flex-row items-center justify-center min-h-screen rounded-2xl bg-linear-to-br from-[#a8dca8] to-[#8dad8a] p-6">
       {/* Plant Image */}
       <div className="bg-white rounded-2xl shadow-md p-6 md:w-2/5 w-full">
         <img
@@ -63,7 +63,7 @@ const PlantsDetails = () => {
       </div>
 
       {/* Details Section */}
-      <div className="md:w-2/4 w-full mt-8 md:mt-0 md:ml-10 bg-green-50 p-6 rounded-2xl">
+      <div className="md:w-2/4 w-full mt-8 md:mt-0 md:ml-10 bg-gray-50 p-6 rounded-2xl">
         <h1 className="text-3xl font-bold text-gray-800">{plantName}</h1>
         <p className="text-gray-600 mt-1">{category}</p>
 
@@ -75,7 +75,7 @@ const PlantsDetails = () => {
               className={`${
                 i < Math.round(rating) ? "text-yellow-400" : "text-gray-300"
               } text-lg`}
-            /> 
+            />
           ))}
           <span className="ml-2 text-gray-700 font-medium">{rating}</span>
         </div>

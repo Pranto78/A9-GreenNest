@@ -36,7 +36,7 @@ const Registration = () => {
       .then(() => {
         toast.success("Registered successfully!");
         logOut(); // safe now
-        navigate("/auth/login");
+        navigate("/");
       })
       .catch((err) => toast.error(err.message));
   };
