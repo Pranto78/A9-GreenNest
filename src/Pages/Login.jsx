@@ -1,37 +1,59 @@
-import React, { useState } from "react";
-import { NavLink } from "react-router";
-import { FaEye, FaEyeSlash } from "react-icons/fa"; // 👁️ icons for show/hide
+import React, { useContext, useState } from "react";
+import { NavLink, useNavigate, useLocation } from "react-router";
+import { AuthContext } from "../Provider/AuthProvider";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { FcGoogle } from "react-icons/fc";
+import toast from "react-hot-toast";
 
 const Login = () => {
+  const { loginUser, googleLogin } = useContext(AuthContext);
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
 
-  // toggle function
-  const togglePasswordVisibility = () => {
-    setShowPassword(!showPassword);
+  const handleLogin = (e) => {
+    e.preventDefault();
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+
+    loginUser(email, password)
+      .then(() => {
+        toast.success("Logged in successfully!");
+        navigate(from, { replace: true });
+      })
+      .catch((error) => toast.error(error.message));
+  };
+
+  const handleGoogleLogin = () => {
+    googleLogin()
+      .then(() => {
+        toast.success("Logged in with Google!");
+        navigate(from, { replace: true });
+      })
+      .catch((error) => toast.error(error.message));
   };
 
   return (
-    <div className="min-h-screen flex justify-center items-center p-4 ">
+    <div className="min-h-screen flex justify-center items-center p-4">
       <div className="card w-full max-w-md bg-white shadow-xl rounded-2xl">
         <div className="card-body">
           <h1 className="text-4xl font-bold text-center text-green-700 mb-6">
             Login Now
           </h1>
 
-          <form className="space-y-4">
-            {/* Email */}
+          <form onSubmit={handleLogin} className="space-y-4">
             <div>
               <label className="label font-semibold text-gray-700">Email</label>
               <input
                 type="email"
                 name="email"
                 placeholder="Enter your email"
-                className="input input-bordered w-full focus:outline-none focus:ring-2 focus:ring-green-500"
+                className="input input-bordered w-full"
                 required
               />
             </div>
 
-            {/* Password */}
             <div className="relative">
               <label className="label font-semibold text-gray-700">
                 Password
@@ -40,38 +62,35 @@ const Login = () => {
                 type={showPassword ? "text" : "password"}
                 name="password"
                 placeholder="Enter your password"
-                className="input input-bordered w-full focus:outline-none focus:ring-2 focus:ring-green-500 pr-10"
+                className="input input-bordered w-full pr-10"
                 required
               />
-
-              
               <button
                 type="button"
-                onClick={togglePasswordVisibility}
-                className="absolute right-2 top-8 text-gray-600 hover:text-green-600 transition-all"
+                onClick={() => setShowPassword(!showPassword)}
+                className="absolute right-2 top-8 text-gray-600"
               >
                 {showPassword ? <FaEyeSlash size={20} /> : <FaEye size={20} />}
               </button>
             </div>
 
-            <div className="text-right">
-              <a href="#" className="text-sm text-green-700 hover:underline">
-                Forgot Password?
-              </a>
-            </div>
-
-            {/* Submit Button */}
-            <div className="pt-2">
-              <button
-                type="submit"
-                className="btn w-full bg-green-600 hover:bg-green-700 text-white font-semibold rounded-md shadow-md transition-all duration-200"
-              >
-                Login
-              </button>
-            </div>
+            <button
+              type="submit"
+              className="btn w-full bg-green-600 text-white mt-2"
+            >
+              Login
+            </button>
           </form>
 
-          {/* Registration Link */}
+          <div className="divider">OR</div>
+
+          <button
+            onClick={handleGoogleLogin}
+            className="btn w-full border border-gray-300 text-gray-700 hover:bg-gray-100"
+          >
+            <FcGoogle size={22} /> Continue with Google
+          </button>
+
           <p className="text-center text-gray-600 text-sm mt-4">
             Don’t have an account?{" "}
             <NavLink

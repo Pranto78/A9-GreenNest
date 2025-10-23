@@ -23,7 +23,8 @@ const AuthProvider = ({ children }) => {
   // 🔹 Create user
   const createUser = (email, password, name, photo) => {
     setLoading(true);
-    return createUserWithEmailAndPassword(auth, email, password).then(
+    return createUserWithEmailAndPassword(auth, email, password)
+    .then(
       (result) => {
         if (name || photo) {
           return updateProfile(result.user, {
