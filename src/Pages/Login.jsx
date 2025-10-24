@@ -4,6 +4,8 @@ import { AuthContext } from "../Provider/AuthProvider";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import toast from "react-hot-toast";
+import { getAuth, sendPasswordResetEmail } from "firebase/auth";
+import app from "../Firebase/firebase.config";
 
 const Login = () => {
   const { loginUser, googleLogin } = useContext(AuthContext);
@@ -32,6 +34,20 @@ const Login = () => {
         navigate(from, { replace: true });
       })
       .catch((error) => toast.error(error.message));
+  };
+
+  const handleForgotPassword = () => {
+    const email = prompt("Please enter your email to reset password:");
+    if (!email) return;
+
+    const auth = getAuth(app);
+    sendPasswordResetEmail(auth, email)
+      .then(() => {
+        toast.success("Password reset email sent! Check your inbox.");
+      })
+      .catch((err) => {
+        toast.error(err.message);
+      });
   };
 
   return (
@@ -73,6 +89,14 @@ const Login = () => {
                 {showPassword ? <FaEyeSlash size={20} /> : <FaEye size={20} />}
               </button>
             </div>
+
+            {/* Forgot Password Link */}
+            <p
+              className="text-sm text-green-700 hover:underline cursor-pointer text-right"
+              onClick={handleForgotPassword}
+            >
+              Forgot Password?
+            </p>
 
             <button
               type="submit"

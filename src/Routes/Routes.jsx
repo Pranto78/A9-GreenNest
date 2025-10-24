@@ -8,11 +8,13 @@ import Registration from "../Pages/Registration";
 import Login from "../Pages/Login";
 import PrivateRoute from "../Provider/PrivateRoute";
 import Profile from "../Pages/Profile";
+import ErrorPage from "../Pages/ErrorPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <HomePage></HomePage>,
+    errorElement:<ErrorPage></ErrorPage>,
     children: [
       {
         path: "",
@@ -47,6 +49,7 @@ const router = createBrowserRouter([
   {
     path:"/auth",
     element:<AuthLayout></AuthLayout>,
+    errorElement:<ErrorPage></ErrorPage>,
     children:[
       {
         path:"/auth/registration",

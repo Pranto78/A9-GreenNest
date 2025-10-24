@@ -1,17 +1,14 @@
-import React, { use, useContext, useState } from "react";
+import React, { useContext, useState } from "react";
 import { NavLink, useNavigate } from "react-router";
-// import { AuthContext } from "../Provider/AuthProvider";
 import { FcGoogle } from "react-icons/fc";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 import toast from "react-hot-toast";
 import { AuthContext } from "../Provider/AuthProvider";
-// import { signOut } from "firebase/auth";
-
-
 
 const Registration = () => {
-  const { logOut } = use(AuthContext);
-  const { createUser, googleLogin } = useContext(AuthContext);
+  const { createUser, googleLogin, logOut } = useContext(AuthContext);
   const [error, setError] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
   const handleRegister = (e) => {
@@ -21,6 +18,7 @@ const Registration = () => {
     const email = e.target.email.value;
     const password = e.target.password.value;
 
+    // Password validation
     if (!/(?=.*[A-Z])/.test(password)) {
       setError("Password must contain at least one uppercase letter.");
       return;
@@ -45,7 +43,6 @@ const Registration = () => {
     googleLogin()
       .then(() => {
         toast.success("Signed up with Google!");
-    
         navigate("/");
       })
       .catch((error) => toast.error(error.message));
@@ -80,13 +77,24 @@ const Registration = () => {
               className="input input-bordered w-full"
               required
             />
-            <input
-              type="password"
-              name="password"
-              placeholder="Password"
-              className="input input-bordered w-full"
-              required
-            />
+
+            {/* Password with show/hide */}
+            <div className="relative">
+              <input
+                type={showPassword ? "text" : "password"}
+                name="password"
+                placeholder="Password"
+                className="input input-bordered w-full pr-12"
+                required
+              />
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                className="absolute top-1/2 right-3 -translate-y-1/2 text-gray-600 hover:text-green-600 transition-colors"
+              >
+                {showPassword ? <FaEyeSlash size={20} /> : <FaEye size={20} />}
+              </button>
+            </div>
 
             {error && <p className="text-red-500 text-sm">{error}</p>}
 

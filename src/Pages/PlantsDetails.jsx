@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { useParams, useLoaderData } from "react-router";
-import { FaStar } from "react-icons/fa";
+import { useParams, useLoaderData, useNavigate } from "react-router";
+import { FaArrowLeft, FaStar } from "react-icons/fa";
 import toast from "react-hot-toast";
 
 const PlantsDetails = () => {
@@ -9,13 +9,24 @@ const PlantsDetails = () => {
 
   const plant = data.find((item) => item.plantId === parseInt(id));
 
-  if (!plant) {
-    return (
-      <div className="flex justify-center items-center h-screen text-xl text-red-600">
+
+if (!plant) {
+  const navigate = useNavigate();
+
+  return (
+    <div className="flex flex-col justify-center items-center h-screen text-center px-4 gap-4">
+      <p className="text-2xl md:text-3xl text-red-600 font-semibold">
         Plant not found 🌿
-      </div>
-    );
-  }
+      </p>
+      <button
+        onClick={() => navigate(-1)}
+        className="inline-flex items-center gap-2 px-6 py-3 text-white font-semibold rounded-full bg-gradient-to-r from-[#00b09b] to-[#96c93d] hover:from-green-600 hover:to-lime-600 shadow-md transition-all transform hover:scale-105"
+      >
+        <FaArrowLeft /> Go Back
+      </button>
+    </div>
+  );
+}
 
   const {
     plantName,

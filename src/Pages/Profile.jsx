@@ -22,7 +22,7 @@ const Profile = () => {
 
       toast.success("Profile updated successfully!");
       setIsEditing(false);
-      window.location.reload(); // refresh UI after update
+    //   window.location.reload(); // refresh UI after update
     } catch (error) {
       toast.error("Failed to update profile!");
       console.error(error);
