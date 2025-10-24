@@ -11,6 +11,7 @@ import hero3 from "../assets/hero3.jpg";
 import AllPlants from "../Components/AllPlants/AllPlants";
 import PlantCareTips from "../Components/PlantCareTips/PlantCareTips";
 import PlantExperts from "../Components/PlantcareExpert/PlantcareExpert";
+import PlantOfWeek from "../Components/PlantsOfWeek/PlantsOfWeek";
 
 const Home = () => {
   const slides = [hero1, hero2, hero3];
@@ -51,6 +52,7 @@ const Home = () => {
 
       <AllPlants></AllPlants>
       <PlantCareTips></PlantCareTips>
+      <PlantOfWeek></PlantOfWeek>
       <PlantExperts></PlantExperts>
     </>
   );
